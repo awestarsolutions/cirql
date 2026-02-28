@@ -1,0 +1,337 @@
+﻿PRODUCT REQUIREMENTS DOCUMENT (PRD)
+Awestar.communities – Unified Sports Coordination Platform
+Version: 1.0
+Timeline: 5 Weeks
+Support: 6 Months Post-Launch
+Platform Type: Web Application (Responsive – Mobile First)
+
+1. Product Vision
+To build a structured, monetizable, multi-city sports coordination ecosystem that replaces fragmented WhatsApp-based game management with a centralized platform supporting:
+    • Game bookings
+    • Coaching batches
+    • Tournaments & events
+    • Sports eCommerce
+    • Structured engagement feed
+    • Commission-based revenue
+
+2. Product Goals
+Primary Goals
+    • Centralize all city-level game activity
+    • Enable frictionless game booking via payment
+    • Introduce commission-based revenue model
+    • Provide structured tools for coaches
+    • Enable tournament organization
+    • Launch in 5 weeks
+Secondary Goals
+    • Improve liquidity (game fill rate)
+    • Increase repeat participation
+    • Enable long-term data ownership
+    • Prepare for multi-city scalability
+
+3. User Roles
+    1. Player (default role)
+    2. Game Creator (Player privilege)
+    3. Coach
+    4. Admin
+
+4. High-Level Modules
+    1. Authentication & User Management
+    2. City & Area Infrastructure
+    3. Game Marketplace
+    4. Coaching Module
+    5. Tournament & Event Module
+    6. Structured Activity Feed
+    7. eCommerce Module
+    8. Admin Dashboard
+    9. Notification System
+    10. Payment & Commission Engine
+
+5. Functional Requirements
+
+MODULE 1: Authentication & User Management
+Features
+User Registration
+    • Mobile number OTP login
+    • Email optional
+    • Basic profile fields:
+        ◦ Name
+        ◦ City
+        ◦ Area
+        ◦ Preferred sports
+Profile Management
+    • Edit profile
+    • Upload profile image
+    • View:
+        ◦ Games attended
+        ◦ Upcoming games
+        ◦ Interested games
+        ◦ Coaching enrollments
+        ◦ Tournament participation
+
+Tasks
+Phase Tasks
+    • Setup authentication service
+    • OTP integration
+    • Session management
+Subtasks
+    • Create user table schema
+    • Add sports preference mapping table
+    • Create profile edit endpoint
+    • Profile UI page
+    • Data validation
+
+MODULE 2: City & Area Infrastructure
+Features
+    • Admin can create cities
+    • Admin can create areas under cities
+    • Users can only create games within existing areas
+    • Area-level filtering
+
+Tasks
+    • City schema
+    • Area schema
+    • City-area relationship mapping
+    • Admin CRUD APIs
+    • Dropdown filtering logic
+
+MODULE 3: Game Marketplace
+Features
+Create Game
+Fields:
+    • City
+    • Area
+    • Sport
+    • Date
+    • Time
+    • Slot count
+    • Entry fee
+    • Skill level
+    • Description (restricted length)
+Join Game
+    • Payment required
+    • Slot auto-lock
+    • Booking confirmation
+Game States
+    • Upcoming
+    • Full
+    • Completed
+    • Cancelled
+Cancellation Logic
+    • Define time-based cancellation window
+    • Refund logic (configurable)
+
+Tasks
+Backend
+    • Game schema
+    • Booking schema
+    • Slot tracking logic
+    • Status transition logic
+Subtasks
+    • Prevent overbooking
+    • Payment verification
+    • Refund endpoint
+    • Cancellation audit log
+Frontend
+    • Game listing page
+    • Filter panel
+    • Game detail page
+    • Create game form
+    • Booking confirmation screen
+
+MODULE 4: Coaching Module
+Features
+Coach Onboarding
+    • Admin approval required
+    • Coach profile creation
+Batch Creation
+Fields:
+    • Sport
+    • Area
+    • Batch schedule
+    • Capacity
+    • Monthly/weekly fee
+    • Start date
+Enrollment
+    • Payment required
+    • Capacity enforcement
+
+Tasks
+Backend
+    • Coach table
+    • Batch table
+    • Enrollment table
+Subtasks
+    • Coach approval flow
+    • Enrollment capacity validation
+    • Batch lifecycle management
+Frontend
+    • Coach listing page
+    • Batch detail page
+    • Enrollment flow
+
+MODULE 5: Tournament & Event Module
+Features
+Admin Events
+    • Tournament creation
+    • Registration fee
+    • Max participants
+    • Format (knockout/league)
+Coach Events
+    • Mini tournaments
+    • Workshops
+Bracket Management
+    • Basic bracket generation
+    • Manual score entry
+
+Tasks
+Backend
+    • Tournament schema
+    • Registration schema
+    • Bracket mapping logic
+Subtasks
+    • Participant validation
+    • Fee payment integration
+    • Status transitions
+Frontend
+    • Tournament listing page
+    • Registration page
+    • Bracket display UI
+
+MODULE 6: Structured Activity Feed
+Feed Types
+    1. Near-full game
+    2. New game
+    3. Trending area
+    4. New coaching batch
+    5. Tournament announcement
+Rules
+    • No user free-text posting
+    • System-generated only
+
+Tasks
+    • Feed event schema
+    • Feed generation triggers
+    • Ranking logic
+    • Feed API endpoint
+    • Feed UI layout
+
+MODULE 7: eCommerce Module
+Features
+    • Product listing
+    • Categories
+    • Add to cart
+    • Checkout
+    • Order tracking
+    • Basic inventory
+
+Tasks
+Backend
+    • Product schema
+    • Cart schema
+    • Order schema
+    • Inventory logic
+Subtasks
+    • Payment mapping
+    • Order status updates
+    • Admin product management
+Frontend
+    • Product listing page
+    • Cart page
+    • Checkout page
+    • Order history page
+
+MODULE 8: Admin Dashboard
+Sections
+    1. User Management
+    2. City & Area Management
+    3. Game Monitoring
+    4. Coaching Monitoring
+    5. Tournament Management
+    6. Product Management
+    7. Financial Reports
+
+Financial Metrics
+    • Total GMV
+    • Commission earned
+    • Revenue by module
+    • Active users
+    • Fill rate %
+
+Tasks
+    • Admin role system
+    • Reporting queries
+    • Dashboard charts
+    • CSV export
+
+MODULE 9: Payment & Commission Engine
+Features
+    • Razorpay integration
+    • Commission deduction
+    • Refund support
+    • Payment logging
+
+Tasks
+    • Payment webhook integration
+    • Commission calculation logic
+    • Ledger tracking
+    • Transaction reconciliation
+
+MODULE 10: Notification System
+Types
+    1. Game starting soon
+    2. Game nearly full
+    3. New batch in interested area
+    4. Tournament registration reminder
+
+Tasks
+    • Push notification integration
+    • Email fallback system
+    • Interest mapping logic
+    • Cron-based triggers
+
+6. Non-Functional Requirements
+    • Mobile-first responsive UI
+    • Secure payment handling
+    • Role-based access control
+    • Scalable architecture
+    • 99% uptime target
+    • Optimized database indexing
+    • Basic rate limiting
+
+7. Phased Execution Plan 
+
+Phase 1 – Foundation 
+    • Auth
+    • City & Area
+    • DB architecture
+    • UI design finalization
+
+Phase 2 – Core Marketplace 
+    • Game creation
+    • Booking engine
+    • Commission logic
+
+Phase 3 – Coaching 
+    • Coach approval
+    • Batch system
+    • Enrollment payments
+
+Phase 4 – Tournaments + eCommerce
+    • Tournament system
+    • Product system
+    • Order management
+
+Phase 5 – Admin + Feed + Deployment 
+    • Reporting dashboard
+    • Activity feed
+    • Notification system
+    • Full testing
+    • Production deployment
+
+8. Success Metrics
+    • 70%+ game fill rate
+    • 30% repeat participation
+    • 10%+ coaching conversion
+    • Positive GMV growth month over month
+    • <3% payment failure rate
+
