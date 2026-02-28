@@ -1,0 +1,13 @@
+# Disable directory browsing
+Options -Indexes
+
+# Fallback for routing if needed (optional, just in case they need to route through index later)
+# RewriteEngine On
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Force PHP to be handled correctly on some cPanel hosts
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php81 .php .php8 .phtml
+</IfModule>
